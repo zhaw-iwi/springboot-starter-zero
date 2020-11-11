@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+<head>
+<title>Infections</title>
+<link rel="stylesheet" type="text/css"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+	function go() {
+		syso("> Running ...");
+
+		birthdate = document.getElementById("inputBirthdate").value;
+
+		var query = "persons/";
+		if (query) {
+			query = "persons/" + birthdate;
+		}
+
+		$.get('http://localhost:8080/infections/' + query, function(response) {
+			displayPersons(response);
+		});
+
+		setTimeout(function() {
+			syso("> Done");
+		}, 1000);
+
+	}
+
+	function displayPersons(persons) {
+
+		document.getElementById("personTable").innerHTML = "";
+		persons.forEach(displayPerson);
+	}
+
+	function displayPerson(person) {
+		var tr = document.createElement("tr");
+		var ltd = document.createElement("td");
+		var rtd = document.createElement("td");
+		ltd.innerHTML = person.name;
+		rtd.innerHTML = person.birthdate;
+		tr.appendChild(ltd);
+		tr.appendChild(rtd);
+		document.getElementById("personTable").appendChild(tr);
+	}
+
+	function syso(message) {
+
+		document.getElementById("console").innerHTML = "";
+		var result = document.createElement("p");
+		result.innerHTML = message;
+		document.getElementById("console").appendChild(result);
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<h1>Yup :-)</h1>
+
+		<form>
+			<div class="form-group">
+				<label for="inputLocation">Birthdate</label> <input type="number"
+					class="form-control" id="inputBirthdate"
+					aria-describedby="inputHelp" placeholder="Enter Birthdate OR Leave Empty"><small
+					id="inputHelp" class="form-text text-muted">Please enter a
+					birthdate (e.g. 489912023) or leave empty to display all persons</small>
+			</div>
+			<button type="button" class="btn btn-primary" onclick="go()">Go
+				:-)</button>
+		</form>
+
+		<p>&nbsp;</p>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Birthdate</th>
+				</tr>
+			</thead>
+			<tbody id="personTable"></tbody>
+		</table>
+
+		<p>&nbsp;</p>
+		<div id="console"></div>
+	</div>
+</body>
+</html>
