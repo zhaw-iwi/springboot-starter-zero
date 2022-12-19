@@ -19,22 +19,21 @@ public class Lecture {
   private String topic;
   private long date;
  
-
   @ManyToMany
   private ArrayList<Student> students = new ArrayList<Student>();
 
   @ManyToMany
   private ArrayList<Language> languages = new ArrayList<Language>();
 
-  public Lecture(String name, String topic, long date) {
+  public Lecture(String name, String topic, long date, ArrayList<Language> languages, ArrayList<Student> students) {
     this.name = name;
     this.topic = topic;
     this.date = date;
+    this.languages = languages;
+    this.students = students;
   }
 
   public Lecture() {}
-
-
 
   public String getName() {
     return this.name;
@@ -52,7 +51,7 @@ public class Lecture {
     return this.languages;
   }
 
-  public void addLanguages(Language language) {
+  public void addLanguage(Language language) {
     languages.add(language);
   }
 
