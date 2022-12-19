@@ -10,33 +10,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.zhaw.springboot.entities.Person;
-import ch.zhaw.springboot.repositories.PersonRepository;
+import ch.zhaw.springboot.entities.Language;
+import ch.zhaw.springboot.repositories.LanguageRepository;
+import ch.zhaw.springboot.entities.Student;
+import ch.zhaw.springboot.repositories.StudentRepository;
+import ch.zhaw.springboot.entities.Lecture;
+import ch.zhaw.springboot.repositories.LectureRepository;
 
 @RestController
 public class PersonRestController {
 	@Autowired
-	private PersonRepository repository;
+	private LanguageRepository repository;
 
 	@RequestMapping(value = "infections/persons", method = RequestMethod.GET)
-	public ResponseEntity<List<Person>> getPersons() {
-		List<Person> result = this.repository.findAll();
+	public ResponseEntity<List<Language>> getPersons() {
+		List<Language> result = this.repository.findAll();
 
 		if (!result.isEmpty()) {
-			return new ResponseEntity<List<Person>>(result, HttpStatus.OK);
+			return new ResponseEntity<List<Language>>(result, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<List<Person>>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<List<Language>>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@RequestMapping(value = "infections/persons/{birthdate}", method = RequestMethod.GET)
-	public ResponseEntity<List<Person>> getPersonsByBirthdate(@PathVariable("birthdate") long birthdate) {
-		List<Person> result = this.repository.findPersonsByBirthdate(birthdate);
+	public ResponseEntity<List<Language>> getPersonsByBirthdate(@PathVariable("origin") String origin) {
+		List<Language> result = this.repository.findLanguagesByOrigin(origin);
 
 		if (!result.isEmpty()) {
-			return new ResponseEntity<List<Person>>(result, HttpStatus.OK);
+			return new ResponseEntity<List<Language>>(result, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<List<Person>>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<List<Language>>(HttpStatus.NOT_FOUND);
 		}
 	}
 }
