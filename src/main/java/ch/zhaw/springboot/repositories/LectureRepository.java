@@ -9,5 +9,5 @@ public interface LectureRepository extends JpaRepository<Lecture, Long> {
   // test
 
   @Query("SELECT le FROM Lecture le WHERE le.name = ?1")
-  public List<Lecture> findLecutresByName(String name);
+  public List<Lecture> findLecturesByName(String name);
 }

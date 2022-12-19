@@ -12,18 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ch.zhaw.springboot.entities.Language;
 import ch.zhaw.springboot.repositories.LanguageRepository;
-import ch.zhaw.springboot.entities.Student;
-import ch.zhaw.springboot.repositories.StudentRepository;
-import ch.zhaw.springboot.entities.Lecture;
-import ch.zhaw.springboot.repositories.LectureRepository;
 
 @RestController
-public class PersonRestController {
+public class LanguageRestController {
 	@Autowired
 	private LanguageRepository repository;
 
-	@RequestMapping(value = "infections/persons", method = RequestMethod.GET)
-	public ResponseEntity<List<Language>> getPersons() {
+	@RequestMapping(value = "lectures/languages", method = RequestMethod.GET)
+	public ResponseEntity<List<Language>> getLanguages() {
 		List<Language> result = this.repository.findAll();
 
 		if (!result.isEmpty()) {
@@ -33,7 +29,7 @@ public class PersonRestController {
 		}
 	}
 
-	@RequestMapping(value = "infections/persons/{origin}", method = RequestMethod.GET)
+	@RequestMapping(value = "lectures/languages/{origin}", method = RequestMethod.GET)
 	public ResponseEntity<List<Language>> getLanguageByOrigin(@PathVariable("origin") String origin) {
 		List<Language> result = this.repository.findLanguagesByOrigin(origin);
 
