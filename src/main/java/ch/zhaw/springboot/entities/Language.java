@@ -21,8 +21,7 @@ public class Language {
 
   public Language(String name, String origin, Lecture lecture) {
     this.name = name;
-    this.topic = topic;
-    this.date = date;
+    this.origin = origin;
     this.lecture = lecture;
   }
 
