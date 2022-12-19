@@ -4,23 +4,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//HOMO
+
 @Entity
-public class Person {
+public class Student {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	private String name;
-	private long birthdate;
+	private long age;
 
-	public Person(String name, long birthdate) {
+	public <Student(String name, long age) {
 		this.name = name;
-		this.birthdate = birthdate;
+		this.age = age;
 	}
 
-	public Person() {
+	public Student() {
 
 	}
 
@@ -28,7 +28,7 @@ public class Person {
 		return this.name;
 	}
 
-	public long getBirthdate() {
-		return this.birthdate;
+	public long getAge() {
+		return this.age;
 	}
 }
