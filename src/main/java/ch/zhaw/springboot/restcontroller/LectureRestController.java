@@ -18,7 +18,7 @@ public class LectureRestController {
 	@Autowired
 	private LectureRepository repository;
 
-	@RequestMapping(value = "lectures/lecture", method = RequestMethod.GET)
+	@RequestMapping(value = "lectures/lectures", method = RequestMethod.GET)
 	public ResponseEntity<List<Lecture>> getLectures() {
 		List<Lecture> result = this.repository.findAll();
 

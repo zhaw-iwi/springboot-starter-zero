@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface LanguageRepository extends JpaRepository<Language, Long> {
   
-
   @Query("SELECT la FROM Language la WHERE la.origin = ?1")
   public List<Language> findLanguagesByOrigin(String origin);
 }

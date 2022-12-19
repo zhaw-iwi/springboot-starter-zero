@@ -18,7 +18,7 @@ public class StudentRestController {
 	@Autowired
 	private StudentRepository repository;
 
-	@RequestMapping(value = "students/students", method = RequestMethod.GET)
+	@RequestMapping(value = "lectures/students", method = RequestMethod.GET)
 	public ResponseEntity<List<Student>> getLectures() {
 		List<Student> result = this.repository.findAll();
 
@@ -29,7 +29,7 @@ public class StudentRestController {
 		}
 	}
 
-	@RequestMapping(value = "students/students/{age}", method = RequestMethod.GET)
+	@RequestMapping(value = "lectures/students/{age}", method = RequestMethod.GET)
 	public ResponseEntity<List<Student>> getStudentByAge(@PathVariable("age") long age) {
 		List<Student> result = this.repository.findStudentByAge(age);
 

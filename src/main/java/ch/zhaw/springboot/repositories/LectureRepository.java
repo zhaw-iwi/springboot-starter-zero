@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface LectureRepository extends JpaRepository<Lecture, Long> {
-  // test
 
   @Query("SELECT le FROM Lecture le WHERE le.name = ?1")
   public List<Lecture> findLecturesByName(String name);
