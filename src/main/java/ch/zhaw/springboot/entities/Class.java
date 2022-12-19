@@ -8,33 +8,34 @@ import jakarta.persistence.Id;
 @Entity
 public class Class {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
 
-private String name;
-	private String topic;
-	private long date;
+  private String name;
+  private String topic;
+  private long date;
 
-	public Class(String name, String topic, long date) {
-		this.name = name;
-		this.topic = topic;
-		this.date = date;
-	}
+  @ManyToMany
+  private Student student;
 
-	public Class() {
+  public Class(String name, String topic, long date) {
+    this.name = name;
+    this.topic = topic;
+    this.date = date;
+  }
 
-	}
+  public Class() {}
 
-	public String getName() {
-		return this.name;
-	}
+  public String getName() {
+    return this.name;
+  }
 
-	public String getTopic() {
-		return this.topic;
-	}
+  public String getTopic() {
+    return this.topic;
+  }
 
-	public long getDate() {
-		return this.date;
-	}
+  public long getDate() {
+    return this.date;
+  }
 }
