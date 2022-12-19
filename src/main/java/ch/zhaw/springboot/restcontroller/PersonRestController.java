@@ -33,8 +33,8 @@ public class PersonRestController {
 		}
 	}
 
-	@RequestMapping(value = "infections/persons/{birthdate}", method = RequestMethod.GET)
-	public ResponseEntity<List<Language>> getPersonsByBirthdate(@PathVariable("origin") String origin) {
+	@RequestMapping(value = "infections/persons/{origin}", method = RequestMethod.GET)
+	public ResponseEntity<List<Language>> getLanguageByOrigin(@PathVariable("origin") String origin) {
 		List<Language> result = this.repository.findLanguagesByOrigin(origin);
 
 		if (!result.isEmpty()) {
