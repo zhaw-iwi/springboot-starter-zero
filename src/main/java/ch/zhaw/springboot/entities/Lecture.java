@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Lecture {
@@ -23,12 +24,11 @@ public class Lecture {
   public Lecture(String name, String topic, long date, Student student, Language language) {
     this.name = name;
     this.topic = topic;
-    this.date = date;
     this.student = student;
     this.language = language;
   }
 
-  public Class() {}
+  public Lecture() {}
 
   public String getName() {
     return this.name;
@@ -42,8 +42,8 @@ public class Lecture {
     return this.date;
   }
 
-  public Friend getFriend() {
-    return this.friend;
+  public Student getStudent() {
+    return this.student;
   }
 
   public Language getLanguage(){

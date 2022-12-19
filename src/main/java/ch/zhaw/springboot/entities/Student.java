@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Student {
@@ -34,9 +35,5 @@ public class Student {
 
 	public long getAge() {
 		return this.age;
-	}
-
-	public Lecture getclass(){
-		return this.lecture
 	}
 }
