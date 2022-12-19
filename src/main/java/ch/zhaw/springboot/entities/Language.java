@@ -16,14 +16,12 @@ public class Language {
   private String origin;
 
   @ManyToMany
-  private Student student;
   private Lecture lecture;
 
-  public Lecture(String name, String origin, Student student, Lecture lecture) {
+  public Lecture(String name, String origin, Lecture lecture) {
     this.name = name;
     this.topic = topic;
     this.date = date;
-    this.student = student;
     this.lecture = lecture;
   }
 
@@ -35,10 +33,6 @@ public class Language {
 
   public String getOrigin() {
     return this.origin;
-  }
-
-  public Friend getStudent() {
-    return this.student;
   }
 
   public Lecture getLecture() {

@@ -18,12 +18,14 @@ public class Lecture {
 
   @ManyToMany
   private Student student;
+  private Language language;
 
-  public Lecture(String name, String topic, long date, Student student) {
+  public Lecture(String name, String topic, long date, Student student, Language language) {
     this.name = name;
     this.topic = topic;
     this.date = date;
     this.student = student;
+    this.language = language;
   }
 
   public Class() {}
@@ -42,5 +44,9 @@ public class Lecture {
 
   public Friend getFriend() {
     return this.friend;
+  }
+
+  public Language getLanguage(){
+    return this.language;
   }
 }
