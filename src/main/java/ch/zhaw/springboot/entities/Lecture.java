@@ -19,6 +19,8 @@ public class Lecture {
 
   @ManyToMany
   private Student student;
+
+  @ManyToMany
   private Language language;
 
   public Lecture(String name, String topic, long date, Student student, Language language) {
