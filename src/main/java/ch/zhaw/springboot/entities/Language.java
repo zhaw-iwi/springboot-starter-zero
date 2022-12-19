@@ -16,13 +16,10 @@ public class Language {
   private String name;
   private String origin;
 
-  @ManyToMany
-  private Lecture lecture;
 
-  public Language(String name, String origin, Lecture lecture) {
+  public Language(String name, String origin) {
     this.name = name;
     this.origin = origin;
-    this.lecture = lecture;
   }
 
   public Language() {}
@@ -35,7 +32,4 @@ public class Language {
     return this.origin;
   }
 
-  public Lecture getLecture() {
-    return this.lecture;
-  }
 }

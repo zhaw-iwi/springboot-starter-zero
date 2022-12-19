@@ -16,13 +16,11 @@ public class Student {
 	private String name;
 	private long age;
 
-	@ManyToMany
-	private Lecture lecture;
 
-	public Student(String name, long age, Lecture lecture) {
+	public Student(String name, long age) {
 		this.name = name;
 		this.age = age;
-		this.lecture = lecture;
+	
 	}
 
 	public Student() {
@@ -37,7 +35,4 @@ public class Student {
 		return this.age;
 	}
 
-	public Lecture getLecture() {
-		return this.lecture;
-	}
 }
