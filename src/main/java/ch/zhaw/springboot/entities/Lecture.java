@@ -1,5 +1,7 @@
 package ch.zhaw.springboot.entities;
 
+import java.util.ArrayList;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,22 +18,23 @@ public class Lecture {
   private String name;
   private String topic;
   private long date;
+ 
 
   @ManyToMany
-  private Student student;
+  private ArrayList<Student> students = new ArrayList<Student>();
 
   @ManyToMany
-  private Language language;
+  private ArrayList<Language> languages = new ArrayList<Language>();
 
-  public Lecture(String name, String topic, long date, Student student, Language language) {
+  public Lecture(String name, String topic, long date) {
     this.name = name;
     this.topic = topic;
     this.date = date;
-    this.student = student;
-    this.language = language;
   }
 
   public Lecture() {}
+
+
 
   public String getName() {
     return this.name;
@@ -45,11 +48,19 @@ public class Lecture {
     return this.date;
   }
 
-  public Student getStudent() {
-    return this.student;
+  public ArrayList<Language> getLanguages() {
+    return this.languages;
   }
 
-  public Language getLanguage(){
-    return this.language;
+  public void addLanguages(Language language) {
+    languages.add(language);
+  }
+
+  public ArrayList<Student> getStudents() {
+    return this.students;
+  }
+
+  public void addStudent(Student student) {
+    students.add(student);
   }
 }

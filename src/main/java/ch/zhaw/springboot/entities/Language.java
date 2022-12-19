@@ -15,7 +15,6 @@ public class Language {
   private String name;
   private String origin;
 
-
   public Language(String name, String origin) {
     this.name = name;
     this.origin = origin;
