@@ -9,6 +9,8 @@ import ch.zhaw.springboot.entities.Person;
 
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
+	// test
+
 	@Query("SELECT pe FROM Person pe WHERE pe.birthdate = ?1")
 	public List<Person> findPersonsByBirthdate(long birthdate);
 }
