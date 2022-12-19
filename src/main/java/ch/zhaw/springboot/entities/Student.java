@@ -16,10 +16,12 @@ public class Student {
 	private long age;
 
 	@ManyToMany
+	private Lecture lecture;
 
-	public <Student(String name, long age) {
+	public <Student(String name, long age, Lecture lecture) {
 		this.name = name;
 		this.age = age;
+		this.lecture = lecture;
 	}
 
 	public Student() {
@@ -32,5 +34,9 @@ public class Student {
 
 	public long getAge() {
 		return this.age;
+	}
+
+	public Lecture getclass(){
+		return this.lecture
 	}
 }
