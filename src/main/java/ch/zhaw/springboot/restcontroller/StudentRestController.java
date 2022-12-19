@@ -39,4 +39,15 @@ public class StudentRestController {
 			return new ResponseEntity<List<Student>>(HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@RequestMapping(value = "lectures/students/{name}", method = RequestMethod.GET)
+	public ResponseEntity<List<Student>> getStudentByName(@PathVariable("name") String name) {
+		List<Student> result = this.repository.findStudentByName(name);
+
+		if (!result.isEmpty()) {
+			return new ResponseEntity<List<Student>>(result, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Student>>(HttpStatus.NOT_FOUND);
+		}
+	}
 }

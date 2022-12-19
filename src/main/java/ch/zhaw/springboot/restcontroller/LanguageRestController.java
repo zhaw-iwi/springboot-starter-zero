@@ -39,4 +39,15 @@ public class LanguageRestController {
 			return new ResponseEntity<List<Language>>(HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@RequestMapping(value = "lectures/languages/{name}", method = RequestMethod.GET)
+	public ResponseEntity<List<Language>> getLanguageByName(@PathVariable("name") String name) {
+		List<Language> result = this.repository.findLanguagesByName(name);
+
+		if (!result.isEmpty()) {
+			return new ResponseEntity<List<Language>>(result, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Language>>(HttpStatus.NOT_FOUND);
+		}
+	}
 }

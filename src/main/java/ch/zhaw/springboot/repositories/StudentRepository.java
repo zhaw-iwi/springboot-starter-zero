@@ -9,4 +9,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
   @Query("SELECT stu FROM Student stu WHERE stu.age = ?1")
   public List<Student> findStudentByAge(long age);
+
+  @Query("SELECT stu FROM Student stu WHERE stu.name = ?1")
+  public List<Student> findStudentByName(String name);
 }
