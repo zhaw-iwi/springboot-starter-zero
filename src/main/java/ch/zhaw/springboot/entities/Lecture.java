@@ -19,7 +19,7 @@ public class Lecture {
   @ManyToMany
   private Student student;
 
-  public Class(String name, String topic, long date, Student student) {
+  public Lecture(String name, String topic, long date, Student student) {
     this.name = name;
     this.topic = topic;
     this.date = date;
