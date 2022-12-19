@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Class {
+public class Lecture {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,11 @@ public class Class {
   @ManyToMany
   private Student student;
 
-  public Class(String name, String topic, long date) {
+  public Class(String name, String topic, long date, Student student) {
     this.name = name;
     this.topic = topic;
     this.date = date;
+    this.student = student;
   }
 
   public Class() {}
@@ -37,5 +38,9 @@ public class Class {
 
   public long getDate() {
     return this.date;
+  }
+
+  public Friend getFriend() {
+    return this.friend;
   }
 }
