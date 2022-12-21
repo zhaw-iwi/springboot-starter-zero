@@ -15,6 +15,7 @@ import ch.zhaw.springboot.repositories.LanguageRepository;
 
 @RestController
 public class LanguageRestController {
+	
 	@Autowired
 	private LanguageRepository repository;
 

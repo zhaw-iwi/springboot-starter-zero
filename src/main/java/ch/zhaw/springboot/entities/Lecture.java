@@ -2,6 +2,8 @@ package ch.zhaw.springboot.entities;
 
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -47,6 +49,7 @@ public class Lecture {
     return this.date;
   }
 
+  @JsonIgnore
   public ArrayList<Language> getLanguages() {
     return this.languages;
   }
@@ -55,6 +58,7 @@ public class Lecture {
     languages.add(language);
   }
 
+  @JsonIgnore
   public ArrayList<Student> getStudents() {
     return this.students;
   }

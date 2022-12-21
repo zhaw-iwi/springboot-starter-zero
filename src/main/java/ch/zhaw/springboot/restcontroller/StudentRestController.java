@@ -15,6 +15,7 @@ import ch.zhaw.springboot.repositories.StudentRepository;
 
 @RestController
 public class StudentRestController {
+	
 	@Autowired
 	private StudentRepository repository;
 

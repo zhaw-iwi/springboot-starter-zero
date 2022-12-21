@@ -15,10 +15,11 @@ import ch.zhaw.springboot.repositories.LectureRepository;
 
 @RestController
 public class LectureRestController {
+
 	@Autowired
 	private LectureRepository repository;
 
-	@RequestMapping(value = "lectures/lectures", method = RequestMethod.GET)
+	@RequestMapping(value = "lectures", method = RequestMethod.GET)
 	public ResponseEntity<List<Lecture>> getLectures() {
 		List<Lecture> result = this.repository.findAll();
 
@@ -29,7 +30,7 @@ public class LectureRestController {
 		}
 	}
 
-	@RequestMapping(value = "lectures/lectures/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "lectures/{name}", method = RequestMethod.GET)
 	public ResponseEntity<List<Lecture>> getLectureByName(@PathVariable("name") String name) {
 		List<Lecture> result = this.repository.findLecturesByName(name);
 
